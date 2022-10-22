@@ -1,9 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1666387676017" clover="3.2.0">
-  <project timestamp="1666387676017" name="All files">
-    <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1" elements="1" coveredelements="1" complexity="0" loc="0" ncloc="0" packages="1" files="1" classes="1"/>
+<coverage generated="1666453092256" clover="3.2.0">
+  <project timestamp="1666453092256" name="All files">
+    <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="3" elements="6" coveredelements="6" complexity="0" loc="3" ncloc="3" packages="1" files="1" classes="1"/>
     <file name="bankFrontEnd.js" path="/home/christianpinna/projects/Bank-tech-test/src/bankFrontEnd.js">
-      <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+      <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="3"/>
+      <line num="6" count="1" type="stmt"/>
+      <line num="9" count="1" type="stmt"/>
+      <line num="10" count="1" type="stmt"/>
     </file>
   </project>
 </coverage>
