@@ -1,13 +1,13 @@
 export default class TransactionFanctory {
-  constructor (transaction) {
-    this.transaction = transaction;
+  constructor () {
+
   };
-  createTransaction() {
+  createTransaction(date, credit, debit, balance) {
     return {
-      date: "14/01/2023",
-      credit: 0,
-      debit: 1000,
-      balance: 1000,
-    };
+      date: date,
+      credit: credit,
+      debit: debit,
+      balance: (credit + balance - debit),
+    }
   };
 };
