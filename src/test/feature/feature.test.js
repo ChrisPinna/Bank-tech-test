@@ -1,4 +1,4 @@
-import BankFrontEnd from '../bankFrontEnd'
+import BankFrontEnd from '../../bankFrontEnd'
 
 describe('Bank Program', () => {
     test('it should be able to make a deposit of 1000 and get a bank statement with transaction in it', () => {
