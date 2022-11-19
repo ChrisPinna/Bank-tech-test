@@ -1,4 +1,4 @@
-export default class TransactionFanctory {
+export class TransactionFanctory {
   constructor () {
 
   };

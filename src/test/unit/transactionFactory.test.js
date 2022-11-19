@@ -1,4 +1,4 @@
-import TransactionFanctory from "../../transactionFactory";
+import {TransactionFanctory} from "../../lib/transactionFactory";
 jest.useFakeTimers().setSystemTime(new Date("2023-01-14"));
 
 describe("TransactionFactory", () => {
