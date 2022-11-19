@@ -14,4 +14,8 @@ describe("processTransaction method", () => {
     const bank = new BankBackEnd;
     expect(()=>{bank.processTransaction('string')}).toThrow();
   });
+  it("should not accept an array as a argument", () => {
+    const bank = new BankBackEnd;
+    expect(()=>{bank.processTransaction([])}).toThrow();
+  });
 });
