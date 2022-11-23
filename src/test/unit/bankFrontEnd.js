@@ -15,5 +15,13 @@ describe("deposit method", () => {
 
     expect(bankFront.deposit("string")).toThow();
   });
+  it("should call processTransaction method from the backEnd", () => {
+    const bankBack = new BankBackEnd();
+    const bankFront = new BankFrontEnd(bankBack);
+
+    bankFront.deposit(1000);
+
+    expect(bankBack.processTransaction).toHaveBeenCalled();
+  });
   
 });
