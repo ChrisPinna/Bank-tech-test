@@ -1,5 +1,7 @@
 import { BankFrontEnd } from "../../lib/bankFrontEnd";
 import { BankBackEnd } from "../../lib/bankBackEnd";
+import { it } from "jest-circus";
+import expect from "expect";
 jest.mock("../../lib/bankBackEnd");
 
 describe("deposit method", () => {
@@ -23,5 +25,13 @@ describe("deposit method", () => {
 
     expect(bankBack.processTransaction).toHaveBeenCalled();
   });
-  
+});
+
+describe("printStatement method", () => {
+  it("should call createStatement method from the backEnd", () => {
+    const bankBack = new BankBackEnd();
+    const bankFront = new BankFrontEnd(bankBack);
+    bankFront.printStatement();
+    expect(bankBack.createStatement).toHaveBeenCalled();
+  });
 });
