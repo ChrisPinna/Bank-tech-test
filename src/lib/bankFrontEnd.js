@@ -8,6 +8,6 @@ export class BankFrontEnd {
   };
   
   printStatement = () => {
-	return "date || credit || debit || balance\n26/04/2022 || 1000.00 || || 1000.00";
+	return this.bankBackEnd.createStatement();
   };
 }
