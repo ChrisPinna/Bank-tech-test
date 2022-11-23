@@ -34,7 +34,6 @@ export class BankBackEnd {
           }||${" " + transaction.balance.toFixed(2)}\n`
         );
       });
-      rows.forEach((row) => console.log(row));
       return `date || credit || debit || balance\n` + rows.join();
     } else {
       return "date || credit || debit || balance";
