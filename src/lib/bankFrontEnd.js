@@ -1,6 +1,6 @@
 export class BankFrontEnd {
   constructor(bankBackEnd) {
-    this.bankBackEnd = new bankBackEnd;
+    this.bankBackEnd = bankBackEnd;
   }
 
   deposit = (amount) => {
