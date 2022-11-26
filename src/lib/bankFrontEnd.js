@@ -4,36 +4,45 @@ export class BankFrontEnd {
   }
 
   deposit = (amount) => {
-    if (Object.prototype.toString.call(amount) !== "[object Number]") {
+    if (this.#amountIsNotANumber(amount)) {
       throw "Argument is not a Number!";
     } else if (amount < 0 || amount === 0) {
       throw "Amount has to be a positive number!";
     } else {
-      this.bankBackEnd.processTransaction({
-        transactionType: "deposit",
-        amount: amount,
-      });
+      this.#handleTransaction("deposit", amount);
     }
   };
   withdraw = (amount) => {
-    if (Object.prototype.toString.call(amount) !== "[object Number]") {
+    if (this.#amountIsNotANumber(amount)) {
       throw "Argument is not a Number!";
     } else if (amount < 0 || amount === 0) {
       throw "Amount has to be a positive number!";
     } else {
-      const res = this.bankBackEnd.processTransaction({
-        transactionType: "withdrawal",
-        amount: amount,
-      });
-      if (res.status === "error") {
-        throw res.message;
-      } else if (res.status === "success") {
-        console.log(res.message);
-      }
+      const res = this.#handleTransaction("withdrawal", amount);
+      this.#handleResponse(res);
     }
   };
 
   printStatement = () => {
     return this.bankBackEnd.createStatement();
   };
+
+  #handleTransaction(type, amount) {
+    return this.bankBackEnd.processTransaction({
+      transactionType: type,
+      amount: amount,
+    });
+  }
+
+  #handleResponse(res) {
+    if (res.status === "error") {
+      throw res.message;
+    } else if (res.status === "success") {
+      console.log(res.message);
+    }
+  }
+
+  #amountIsNotANumber(amount) {
+    return Object.prototype.toString.call(amount) !== "[object Number]";
+  }
 }

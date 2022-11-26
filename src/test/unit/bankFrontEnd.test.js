@@ -52,6 +52,7 @@ describe("withdrawal method", () => {
     const bankFront = new BankFrontEnd(bankBack);
     bankFront.deposit(1);
     bankBack.processTransaction.mockResolvedValue({
+      status: "success",
       message: "Success, transaction compleated!",
     });
     bankFront.withdraw(1);
