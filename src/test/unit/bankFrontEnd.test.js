@@ -23,6 +23,21 @@ describe("deposit method", () => {
     bankFront.deposit(1000);
     expect(bankBack.processTransaction).toHaveBeenCalled();
   });
+  it("should throw an error if given a negative number", () => {
+    const bankBack = new BankBackEnd();
+    const bankFront = new BankFrontEnd(bankBack);
+    expect(() => {
+      bankFront.deposit(-1000);
+    }).toThrow();
+  });
+  it("should throw if given 0", () => {
+    const bankBack = new BankBackEnd();
+    const bankFront = new BankFrontEnd(bankBack);
+    bankFront.deposit(1000);
+    expect(() => {
+      bankFront.withdrawal(0);
+    }).toThrow();
+  });
 });
 describe("printStatement method", () => {
   it("should call createStatement method from the backEnd", () => {
