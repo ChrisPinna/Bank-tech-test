@@ -15,7 +15,7 @@ export class BankFrontEnd {
       });
     }
   };
-  withdrawal = (amount) => {
+  withdraw = (amount) => {
     if (Object.prototype.toString.call(amount) !== "[object Number]") {
       throw "Argument is not a Number!";
     } else if (amount < 0 || amount === 0) {

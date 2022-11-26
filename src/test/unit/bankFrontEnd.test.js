@@ -54,7 +54,7 @@ describe("withdrawal method", () => {
     bankBack.processTransaction.mockResolvedValue({
       message: "Success, transaction compleated!",
     });
-    bankFront.withdrawal(1);
+    bankFront.withdraw(1);
     expect(bankBack.processTransaction).toHaveBeenCalledTimes(2);
   });
   it("should throw an error if given a negative number", () => {
@@ -62,7 +62,7 @@ describe("withdrawal method", () => {
     const bankFront = new BankFrontEnd(bankBack);
     bankFront.deposit(1000);
     expect(() => {
-      bankFront.withdrawal(-1000);
+      bankFront.withdraw(-1000);
     }).toThrow();
   });
   it("should throw if given 0", () => {
@@ -70,14 +70,14 @@ describe("withdrawal method", () => {
     const bankFront = new BankFrontEnd(bankBack);
     bankFront.deposit(1000);
     expect(() => {
-      bankFront.withdrawal(0);
+      bankFront.withdraw(0);
     }).toThrow();
   });
   it("should throw if withdrawal exeeds balance", () => {
     const bankBack = new BankBackEnd();
     const bankFront = new BankFrontEnd(bankBack);
     expect(() => {
-      bankFront.withdrawal(1);
+      bankFront.withdraw(1);
     }).toThrow();
   });
 });

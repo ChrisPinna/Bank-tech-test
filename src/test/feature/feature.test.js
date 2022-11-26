@@ -30,7 +30,7 @@ describe("Bank Program", () => {
     const bankBack = new BankBackEnd();
     const bankFront = new BankFrontEnd(bankBack);
     bankFront.deposit(500);
-    bankFront.withdrawal(500);
+    bankFront.withdraw(500);
     expect(bankFront.printStatement()).toBe(
       "date || credit || debit || balance\n01/09/2023 || 500.00 || || 500.00\n01/09/2023 || || 500.00 || 0.00\n"
     );
@@ -39,7 +39,7 @@ describe("Bank Program", () => {
     const bankBack = new BankBackEnd();
     const bankFront = new BankFrontEnd(bankBack);
     expect(() => {
-      bankFront.withdrawal(1);
+      bankFront.withdraw(1);
     }).toThrow();
   });
 });
