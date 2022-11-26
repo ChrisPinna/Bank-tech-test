@@ -21,10 +21,15 @@ export class BankFrontEnd {
     } else if (amount < 0 || amount === 0) {
       throw "Amount has to be a positive number!";
     } else {
-      this.bankBackEnd.processTransaction({
+      const res = this.bankBackEnd.processTransaction({
         transactionType: "withdrawal",
         amount: amount,
       });
+      if (res.status === "error") {
+        throw res.message;
+      } else if (res.status === "success") {
+        console.log(res.message);
+      }
     }
   };
 

@@ -1,43 +1,50 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1669468812147" clover="3.2.0">
-  <project timestamp="1669468812147" name="All files">
-    <metrics statements="31" coveredstatements="30" conditionals="24" coveredconditionals="22" methods="8" coveredmethods="8" elements="63" coveredelements="60" complexity="0" loc="31" ncloc="31" packages="1" files="2" classes="2"/>
+<coverage generated="1669484740081" clover="3.2.0">
+  <project timestamp="1669484740081" name="All files">
+    <metrics statements="38" coveredstatements="37" conditionals="30" coveredconditionals="28" methods="8" coveredmethods="8" elements="76" coveredelements="73" complexity="0" loc="38" ncloc="38" packages="1" files="2" classes="2"/>
     <file name="bankBackEnd.js" path="/home/christianpinna/projects/Bank-tech-test/src/lib/bankBackEnd.js">
-      <metrics statements="16" coveredstatements="16" conditionals="12" coveredconditionals="11" methods="4" coveredmethods="4"/>
-      <line num="5" count="10" type="stmt"/>
-      <line num="6" count="10" type="stmt"/>
-      <line num="9" count="9" type="cond" truecount="2" falsecount="0"/>
-      <line num="10" count="3" type="stmt"/>
-      <line num="11" count="6" type="cond" truecount="2" falsecount="0"/>
-      <line num="12" count="5" type="stmt"/>
-      <line num="13" count="5" type="stmt"/>
-      <line num="19" count="1" type="cond" truecount="1" falsecount="1"/>
-      <line num="20" count="1" type="stmt"/>
-      <line num="21" count="1" type="stmt"/>
-      <line num="30" count="6" type="cond" truecount="2" falsecount="0"/>
-      <line num="31" count="4" type="stmt"/>
-      <line num="32" count="4" type="stmt"/>
-      <line num="33" count="5" type="stmt"/>
-      <line num="45" count="4" type="stmt"/>
-      <line num="47" count="2" type="stmt"/>
+      <metrics statements="19" coveredstatements="19" conditionals="14" coveredconditionals="13" methods="4" coveredmethods="4"/>
+      <line num="3" count="12" type="stmt"/>
+      <line num="4" count="12" type="stmt"/>
+      <line num="7" count="11" type="cond" truecount="2" falsecount="0"/>
+      <line num="8" count="3" type="stmt"/>
+      <line num="9" count="8" type="cond" truecount="2" falsecount="0"/>
+      <line num="10" count="5" type="stmt"/>
+      <line num="11" count="5" type="stmt"/>
+      <line num="17" count="3" type="cond" truecount="1" falsecount="1"/>
+      <line num="18" count="3" type="cond" truecount="2" falsecount="0"/>
+      <line num="19" count="2" type="stmt"/>
+      <line num="25" count="1" type="stmt"/>
+      <line num="26" count="1" type="stmt"/>
+      <line num="32" count="1" type="stmt"/>
+      <line num="37" count="6" type="cond" truecount="2" falsecount="0"/>
+      <line num="38" count="4" type="stmt"/>
+      <line num="39" count="4" type="stmt"/>
+      <line num="40" count="5" type="stmt"/>
+      <line num="52" count="4" type="stmt"/>
+      <line num="54" count="2" type="stmt"/>
     </file>
     <file name="bankFrontEnd.js" path="/home/christianpinna/projects/Bank-tech-test/src/lib/bankFrontEnd.js">
-      <metrics statements="15" coveredstatements="14" conditionals="12" coveredconditionals="11" methods="4" coveredmethods="4"/>
-      <line num="3" count="13" type="stmt"/>
-      <line num="6" count="13" type="stmt"/>
+      <metrics statements="19" coveredstatements="18" conditionals="16" coveredconditionals="15" methods="4" coveredmethods="4"/>
+      <line num="3" count="15" type="stmt"/>
+      <line num="6" count="15" type="stmt"/>
       <line num="7" count="11" type="cond" truecount="2" falsecount="0"/>
       <line num="8" count="1" type="stmt"/>
       <line num="9" count="10" type="cond" truecount="4" falsecount="0"/>
-      <line num="10" count="1" type="stmt"/>
-      <line num="12" count="9" type="stmt"/>
-      <line num="18" count="13" type="stmt"/>
-      <line num="19" count="5" type="cond" truecount="1" falsecount="1"/>
+      <line num="10" count="2" type="stmt"/>
+      <line num="12" count="8" type="stmt"/>
+      <line num="18" count="15" type="stmt"/>
+      <line num="19" count="6" type="cond" truecount="1" falsecount="1"/>
       <line num="20" count="0" type="stmt"/>
-      <line num="21" count="5" type="cond" truecount="4" falsecount="0"/>
-      <line num="22" count="3" type="stmt"/>
-      <line num="24" count="2" type="stmt"/>
-      <line num="31" count="13" type="stmt"/>
-      <line num="32" count="5" type="stmt"/>
+      <line num="21" count="6" type="cond" truecount="4" falsecount="0"/>
+      <line num="22" count="2" type="stmt"/>
+      <line num="24" count="4" type="stmt"/>
+      <line num="28" count="4" type="cond" truecount="2" falsecount="0"/>
+      <line num="29" count="1" type="stmt"/>
+      <line num="30" count="2" type="cond" truecount="2" falsecount="0"/>
+      <line num="31" count="1" type="stmt"/>
+      <line num="36" count="15" type="stmt"/>
+      <line num="37" count="5" type="stmt"/>
     </file>
   </project>
 </coverage>

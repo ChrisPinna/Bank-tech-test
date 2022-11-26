@@ -33,9 +33,8 @@ describe("deposit method", () => {
   it("should throw if given 0", () => {
     const bankBack = new BankBackEnd();
     const bankFront = new BankFrontEnd(bankBack);
-    bankFront.deposit(1000);
     expect(() => {
-      bankFront.withdrawal(0);
+      bankFront.deposit(0);
     }).toThrow();
   });
 });
@@ -52,6 +51,9 @@ describe("withdrawal method", () => {
     const bankBack = new BankBackEnd();
     const bankFront = new BankFrontEnd(bankBack);
     bankFront.deposit(1);
+    bankBack.processTransaction.mockResolvedValue({
+      message: "Success, transaction compleated!",
+    });
     bankFront.withdrawal(1);
     expect(bankBack.processTransaction).toHaveBeenCalledTimes(2);
   });
@@ -69,6 +71,13 @@ describe("withdrawal method", () => {
     bankFront.deposit(1000);
     expect(() => {
       bankFront.withdrawal(0);
+    }).toThrow();
+  });
+  it("should throw if withdrawal exeeds balance", () => {
+    const bankBack = new BankBackEnd();
+    const bankFront = new BankFrontEnd(bankBack);
+    expect(() => {
+      bankFront.withdrawal(1);
     }).toThrow();
   });
 });

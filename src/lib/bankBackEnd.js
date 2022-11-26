@@ -1,5 +1,3 @@
-import { closeSync } from "graceful-fs";
-
 export class BankBackEnd {
   constructor() {
     this.balance = 0;
@@ -17,13 +15,22 @@ export class BankBackEnd {
         balance: this.balance,
       });
     } else if (req.transactionType === "withdrawal") {
-      this.balance -= req.amount;
-      this.transactions.push({
-        date: new Date(),
-        credit: 0,
-        debit: req.amount,
-        balance: this.balance,
-      });
+      if (req.amount > this.balance) {
+        return {
+          status: "error",
+          message:
+            "Cannot compleate this transaction, withdrawal amount exeeds account balance!",
+        };
+      } else {
+        this.balance -= req.amount;
+        this.transactions.push({
+          date: new Date(),
+          credit: 0,
+          debit: req.amount,
+          balance: this.balance,
+        });
+        return { status: "success", message: "Success, transaction compleated!" };
+      }
     }
   }
   createStatement() {

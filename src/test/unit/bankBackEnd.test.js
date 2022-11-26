@@ -26,6 +26,16 @@ describe("processTransaction method", () => {
       bank.processTransaction([]);
     }).toThrow();
   });
+  it("should return a error if withdrawal transaction exeeds the balance", () => {
+    const bank = new BankBackEnd();
+    expect(
+      bank.processTransaction({ transactionType: "withdrawal", amount: 1 })
+    ).toEqual({
+      status: "error",
+      message:
+        "Cannot compleate this transaction, withdrawal amount exeeds account balance!",
+    });
+  });
 });
 
 describe("createStatement method", () => {
@@ -35,7 +45,9 @@ describe("createStatement method", () => {
   });
   it("should return a statement with 1000 credit and 1000 balance", () => {
     const bank = new BankBackEnd();
-    bank.processTransaction({ transactionType: "deposit", amount: 1000 })
-    expect(bank.createStatement()).toBe("date || credit || debit || balance\n01/09/2023 || 1000.00 || || 1000.00\n");
+    bank.processTransaction({ transactionType: "deposit", amount: 1000 });
+    expect(bank.createStatement()).toBe(
+      "date || credit || debit || balance\n01/09/2023 || 1000.00 || || 1000.00\n"
+    );
   });
 });
