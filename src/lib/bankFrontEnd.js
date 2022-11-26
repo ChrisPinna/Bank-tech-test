@@ -16,8 +16,8 @@ export class BankFrontEnd {
   withdrawal = (amount) => {
     if (Object.prototype.toString.call(amount) !== "[object Number]") {
       throw "Argument is not a Number!";
-    } else if (amount < 0) {
-      throw "Amount cannot be a negative number!"
+    } else if (amount < 0 || amount === 0) {
+      throw "Amount has to be a positive number!"
     } else {
       this.bankBackEnd.processTransaction({
         transactionType: "withdrawal",

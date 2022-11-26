@@ -36,8 +36,9 @@ describe("withdrawal method", () => {
   it("should call processTransaction method from the backEnd", () => {
     const bankBack = new BankBackEnd();
     const bankFront = new BankFrontEnd(bankBack);
-    bankFront.withdrawal(0);
-    expect(bankBack.processTransaction).toHaveBeenCalledTimes(1);
+    bankFront.deposit(1);
+    bankFront.withdrawal(1);
+    expect(bankBack.processTransaction).toHaveBeenCalledTimes(2);
   });
   it("should throw an error if given a negative number", () => {
     const bankBack = new BankBackEnd();
@@ -45,6 +46,14 @@ describe("withdrawal method", () => {
     bankFront.deposit(1000);
     expect(() => {
       bankFront.withdrawal(-1000);
+    }).toThrow();
+  });
+  it("should throw if given 0", () => {
+    const bankBack = new BankBackEnd();
+    const bankFront = new BankFrontEnd(bankBack);
+    bankFront.deposit(1000);
+    expect(() => {
+      bankFront.withdrawal(0);
     }).toThrow();
   });
 });
