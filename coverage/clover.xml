@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1669466431898" clover="3.2.0">
-  <project timestamp="1669466431898" name="All files">
-    <metrics statements="27" coveredstatements="26" conditionals="16" coveredconditionals="14" methods="8" coveredmethods="8" elements="51" coveredelements="48" complexity="0" loc="27" ncloc="27" packages="1" files="2" classes="2"/>
+<coverage generated="1669468120862" clover="3.2.0">
+  <project timestamp="1669468120862" name="All files">
+    <metrics statements="29" coveredstatements="28" conditionals="18" coveredconditionals="16" methods="8" coveredmethods="8" elements="55" coveredelements="52" complexity="0" loc="29" ncloc="29" packages="1" files="2" classes="2"/>
     <file name="bankBackEnd.js" path="/home/christianpinna/projects/Bank-tech-test/src/lib/bankBackEnd.js">
       <metrics statements="16" coveredstatements="16" conditionals="12" coveredconditionals="11" methods="4" coveredmethods="4"/>
       <line num="5" count="10" type="stmt"/>
@@ -22,18 +22,20 @@
       <line num="47" count="2" type="stmt"/>
     </file>
     <file name="bankFrontEnd.js" path="/home/christianpinna/projects/Bank-tech-test/src/lib/bankFrontEnd.js">
-      <metrics statements="11" coveredstatements="10" conditionals="4" coveredconditionals="3" methods="4" coveredmethods="4"/>
-      <line num="3" count="9" type="stmt"/>
-      <line num="6" count="9" type="stmt"/>
-      <line num="7" count="6" type="cond" truecount="2" falsecount="0"/>
+      <metrics statements="13" coveredstatements="12" conditionals="6" coveredconditionals="5" methods="4" coveredmethods="4"/>
+      <line num="3" count="10" type="stmt"/>
+      <line num="6" count="10" type="stmt"/>
+      <line num="7" count="7" type="cond" truecount="2" falsecount="0"/>
       <line num="8" count="1" type="stmt"/>
-      <line num="10" count="5" type="stmt"/>
-      <line num="16" count="9" type="stmt"/>
-      <line num="17" count="2" type="cond" truecount="1" falsecount="1"/>
+      <line num="10" count="6" type="stmt"/>
+      <line num="16" count="10" type="stmt"/>
+      <line num="17" count="3" type="cond" truecount="1" falsecount="1"/>
       <line num="18" count="0" type="stmt"/>
-      <line num="20" count="2" type="stmt"/>
-      <line num="27" count="9" type="stmt"/>
-      <line num="28" count="5" type="stmt"/>
+      <line num="19" count="3" type="cond" truecount="2" falsecount="0"/>
+      <line num="20" count="1" type="stmt"/>
+      <line num="22" count="2" type="stmt"/>
+      <line num="29" count="10" type="stmt"/>
+      <line num="30" count="5" type="stmt"/>
     </file>
   </project>
 </coverage>
