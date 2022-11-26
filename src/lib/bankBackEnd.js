@@ -8,6 +8,7 @@ export class BankBackEnd {
       throw "Argument is not an Object!";
     } else if (req.type === "deposit") {
       this.#createTransaction(req);
+      return this.#buildMessage("success");
     } else if (req.type === "withdrawal") {
       if (req.amount > this.balance) {
         return this.#buildMessage("error");

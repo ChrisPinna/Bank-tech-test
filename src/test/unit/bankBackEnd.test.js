@@ -26,7 +26,7 @@ describe("processTransaction method", () => {
       bank.processTransaction([]);
     }).toThrow();
   });
-  it("should return a error if withdrawal transaction exeeds the balance", () => {
+  it("should return a error message in json format if withdrawal transaction exeeds the balance", () => {
     const bank = new BankBackEnd();
     expect(
       bank.processTransaction({ type: "withdrawal", amount: 1 })
@@ -34,6 +34,27 @@ describe("processTransaction method", () => {
       status: "error",
       message:
         "Cannot compleate this transaction, withdrawal amount exeeds account balance!",
+    });
+  });
+  it("should return a success message in json format if withdrawal is successful", () => {
+    const bank = new BankBackEnd();
+    bank.processTransaction({ type: "deposit", amount: 1000 });
+    expect(
+      bank.processTransaction({ type: "withdrawal", amount: 1 })
+    ).toEqual({
+      status: "success",
+      message:
+      "Success, transaction compleated!",
+    });
+  });
+  it("should return a success message in json format if withdrawal is successful", () => {
+    const bank = new BankBackEnd();
+    expect(
+      bank.processTransaction({ type: "deposit", amount: 1000 })
+    ).toEqual({
+      status: "success",
+      message:
+      "Success, transaction compleated!",
     });
   });
 });
