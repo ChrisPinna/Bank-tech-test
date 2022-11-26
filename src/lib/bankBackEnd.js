@@ -16,6 +16,14 @@ export class BankBackEnd {
         debit: 0,
         balance: this.balance,
       });
+    } else if (req.transactionType === "withdrawal") {
+      this.balance -= req.amount;
+      this.transactions.push({
+        date: new Date(),
+        credit: 0,
+        debit: req.amount,
+        balance: this.balance,
+      });
     }
   }
   createStatement() {
@@ -34,7 +42,7 @@ export class BankBackEnd {
           }||${" " + transaction.balance.toFixed(2)}\n`
         );
       });
-      return `date || credit || debit || balance\n` + rows.join();
+      return `date || credit || debit || balance\n` + rows.join("");
     } else {
       return "date || credit || debit || balance";
     }

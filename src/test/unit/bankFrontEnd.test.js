@@ -1,7 +1,5 @@
 import { BankFrontEnd } from "../../lib/bankFrontEnd";
 import { BankBackEnd } from "../../lib/bankBackEnd";
-import { it } from "jest-circus";
-import expect from "expect";
 jest.mock("../../lib/bankBackEnd");
 
 describe("deposit method", () => {
@@ -9,13 +7,15 @@ describe("deposit method", () => {
     const bankBack = new BankBackEnd();
     const bankFront = new BankFrontEnd(bankBack);
 
-    expect(bankFront.deposit(1)).not.toThow();
+    expect(() => {
+      bankFront.deposit(1);
+    }).not.toThrow();
   });
   it("should throw if passed string as argument", () => {
     const bankBack = new BankBackEnd();
     const bankFront = new BankFrontEnd(bankBack);
 
-    expect(bankFront.deposit("string")).toThow();
+    expect(()=>{bankFront.deposit("string")}).toThrow();
   });
   it("should call processTransaction method from the backEnd", () => {
     const bankBack = new BankBackEnd();
@@ -32,6 +32,16 @@ describe("printStatement method", () => {
     const bankBack = new BankBackEnd();
     const bankFront = new BankFrontEnd(bankBack);
     bankFront.printStatement();
-    expect(bankBack.createStatement).toHaveBeenCalled();
+    expect(bankBack.createStatement).toHaveBeenCalledTimes(1);
+  });
+});
+describe("withdrawal method", () => {
+  it("should call processTransaction method from the backEnd", () => {
+    const bankBack = new BankBackEnd();
+    const bankFront = new BankFrontEnd(bankBack);
+
+    bankFront.withdrawal(1000);
+
+    expect(bankBack.processTransaction).toHaveBeenCalledTimes(1);
   });
 });

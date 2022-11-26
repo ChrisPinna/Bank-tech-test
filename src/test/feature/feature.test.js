@@ -18,12 +18,21 @@ describe("Bank Program", () => {
       "date || credit || debit || balance\n01/09/2023 || 1000.00 || || 1000.00\n"
     );
   });
-  test("it should be able to make a deposit of 500 and get a bank statement with transaction in it", () => {
+  test("it should be able to make a deposit of 500 and get a bank statement with transaction", () => {
     const bankBack = new BankBackEnd
     const bankFront = new BankFrontEnd(bankBack);
     bankFront.deposit(500);
     expect(bankFront.printStatement()).toBe(
       "date || credit || debit || balance\n01/09/2023 || 500.00 || || 500.00\n"
+    );
+  });
+  test("it should be able to make a deposit, then a withdrawal and get a back statement with all transactions", () => {
+    const bankBack = new BankBackEnd
+    const bankFront = new BankFrontEnd(bankBack);
+    bankFront.deposit(500);
+    bankFront.withdrawal(500);
+    expect(bankFront.printStatement()).toBe(
+      "date || credit || debit || balance\n01/09/2023 || 500.00 || || 500.00\n01/09/2023 || || 500.00 || 0.00\n"
     );
   });
 });

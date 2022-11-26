@@ -4,10 +4,27 @@ export class BankFrontEnd {
   }
 
   deposit = (amount) => {
-    this.bankBackEnd.processTransaction({transactionType: 'deposit', amount: amount})
+    if (Object.prototype.toString.call(amount) !== "[object Number]") {
+      throw "Argument is not a Number!";
+    } else {
+      this.bankBackEnd.processTransaction({
+        transactionType: "deposit",
+        amount: amount,
+      });
+    }
   };
-  
+  withdrawal = (amount) => {
+    if (Object.prototype.toString.call(amount) !== "[object Number]") {
+      throw "Argument is not a Number!";
+    } else {
+      this.bankBackEnd.processTransaction({
+        transactionType: "withdrawal",
+        amount: amount,
+      });
+    }
+  };
+
   printStatement = () => {
-	return this.bankBackEnd.createStatement();
+    return this.bankBackEnd.createStatement();
   };
 }
