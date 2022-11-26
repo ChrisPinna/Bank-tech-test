@@ -6,15 +6,9 @@ export class BankBackEnd {
   processTransaction(req) {
     if (Object.prototype.toString.call(req) !== "[object Object]") {
       throw "Argument is not an Object!";
-    } else if (req.transactionType === "deposit") {
-      this.balance += req.amount;
-      this.transactions.push({
-        date: new Date(),
-        credit: req.amount,
-        debit: 0,
-        balance: this.balance,
-      });
-    } else if (req.transactionType === "withdrawal") {
+    } else if (req.type === "deposit") {
+      this.#createTransaction(req);
+    } else if (req.type === "withdrawal") {
       if (req.amount > this.balance) {
         return {
           status: "error",
@@ -22,17 +16,32 @@ export class BankBackEnd {
             "Cannot compleate this transaction, withdrawal amount exeeds account balance!",
         };
       } else {
-        this.balance -= req.amount;
-        this.transactions.push({
-          date: new Date(),
-          credit: 0,
-          debit: req.amount,
-          balance: this.balance,
-        });
-        return { status: "success", message: "Success, transaction compleated!" };
+        this.#createTransaction(req);
+        return {
+          status: "success",
+          message: "Success, transaction compleated!",
+        };
       }
     }
   }
+  #createTransaction(req) {
+    this.#handleBalanceChange(req);
+    this.transactions.push({
+      date: new Date(),
+      credit: req.type === "deposit" ? req.amount : 0,
+      debit: req.type === "withdrawal" ? req.amount : 0,
+      balance: this.balance,
+    });
+  }
+
+  #handleBalanceChange(req) {
+    if (req.type === "deposit") {
+      this.balance += req.amount;
+    } else if (req.type === "withdrawal") {
+      this.balance -= req.amount;
+    }
+  }
+
   createStatement() {
     if (this.transactions.length !== 0) {
       const rows = [];

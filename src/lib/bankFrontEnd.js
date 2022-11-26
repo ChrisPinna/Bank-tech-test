@@ -29,7 +29,7 @@ export class BankFrontEnd {
 
   #handleTransaction(type, amount) {
     return this.bankBackEnd.processTransaction({
-      transactionType: type,
+      type: type,
       amount: amount,
     });
   }
