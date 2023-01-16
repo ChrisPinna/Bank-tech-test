@@ -1,8 +1,7 @@
 export class BankBackEnd {
-  constructor() {
-    this.balance = 0;
-    this.transactions = [];
-  }
+  #balance = 0;
+  #transactions = [];
+  
   processTransaction(req) {
     if (this.#reqIsNotAObject(req)) {
       throw "Argument is not an Object!";
@@ -10,7 +9,7 @@ export class BankBackEnd {
       this.#createTransaction(req);
       return this.#buildMessage("success");
     } else if (req.type === "withdrawal") {
-      if (req.amount > this.balance) {
+      if (req.amount > this.#balance) {
         return this.#buildMessage("error");
       } else {
         this.#createTransaction(req);
@@ -19,7 +18,7 @@ export class BankBackEnd {
     }
   }
   createStatement() {
-    if (this.transactions.length !== 0) {
+    if (this.#transactions.length !== 0) {
       const rows = this.#createStatementRows();
       return `date || credit || debit || balance\n` + rows.join("");
     } else {
@@ -40,23 +39,23 @@ export class BankBackEnd {
   }
   #createTransaction(req) {
     this.#handleBalanceChange(req);
-    this.transactions.push({
+    this.#transactions.push({
       date: new Date(),
       credit: req.type === "deposit" ? req.amount : 0,
       debit: req.type === "withdrawal" ? req.amount : 0,
-      balance: this.balance,
+      balance: this.#balance,
     });
   }
   #handleBalanceChange(req) {
     if (req.type === "deposit") {
-      this.balance += req.amount;
+      this.#balance += req.amount;
     } else if (req.type === "withdrawal") {
-      this.balance -= req.amount;
+      this.#balance -= req.amount;
     }
   }
   #createStatementRows() {
     const rows = [];
-    this.transactions.forEach((transaction) => {
+    this.#transactions.forEach((transaction) => {
       rows.push(
         `${transaction.date.toLocaleDateString("en-GB") + " "}||${
           transaction.credit === 0

@@ -5,6 +5,7 @@ jest.mock("../../lib/bankBackEnd");
 describe("deposit method", () => {
   it("should take numbers as argument", () => {
     const bankBack = new BankBackEnd();
+    console.log("Here", bankBack);
     const bankFront = new BankFrontEnd(bankBack);
     expect(() => {
       bankFront.deposit(1);
